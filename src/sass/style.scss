@@ -143,6 +143,9 @@ a {
   h2 {
     font-size: 1.25rem;
   }
+  .btn {
+    display: none;
+  }
 
   &__container {
     display: grid;
@@ -224,6 +227,14 @@ a {
     &__container {
       padding-top: 1.5rem;
     }
+
+    .btn {
+      display: inline-block;
+      margin-top: 3.25rem;
+      padding: 1.5rem;
+      width: 25rem;
+    }
+
     .game {
       background-color: $dark-accent;
       height: 19rem;
