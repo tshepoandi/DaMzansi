@@ -130,6 +130,50 @@ a {
   }
 }
 
+.games {
+  background-color: $light-accent;
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+  .btn {
+    display: none;
+  }
+
+  &__container {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    gap: 2rem;
+    margin-top: 1.75rem;
+  }
+
+  .game {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    gap: 1rem;
+
+    &__img {
+      width: 6rem;
+      height: 6rem;
+      border-radius: 1.25rem;
+      background-color: $dark-accent;
+    }
+
+    &__info {
+      display: none;
+    }
+  }
+}
+
 @media screen and (min-width: 768px) {
   .brand {
     .logo {
@@ -154,6 +198,13 @@ a {
       margin-bottom: 2rem;
     }
   }
+
+  .games {
+    padding: 4.75rem;
+    &__container {
+      grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+    }
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -170,5 +221,40 @@ a {
 
   .sign-in {
     font-size: 1.75rem;
+  }
+
+  .games {
+    &__container {
+      padding-top: 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 3.25rem;
+      padding: 1.5rem;
+      width: 25rem;
+    }
+
+    .game {
+      background-color: $dark-accent;
+      height: 19rem;
+      width: 100%;
+
+      border-radius: 1.25rem;
+      padding: 1.25rem;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+
+      &__img {
+        background-color: $primary-color;
+        border-radius: 50%;
+      }
+      &__info {
+        display: block;
+      }
+    }
   }
 }
