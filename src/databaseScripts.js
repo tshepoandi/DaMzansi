@@ -12,11 +12,27 @@ const databaseFunctions = {
   },
   addNewUser: async (username, password) => {
     const result = await pool.query(queries.addNewUser, [username, password, 0])
-    return result
+    return result.rows
   },
+  getUser: async (username, password) => {
+    const result = await pool.query(
+      `select * from USERS where username=$1 and password=$2`,
+      [username, password],
+    )
+    return result.rows[0]
+  },
+  updateScore: async () => {},
 }
 
-databaseFunctions.createUserTable().then((data) => console.log(data))
-databaseFunctions.addNewUser('Tshepo', '123456').then((data) => {
-  console.log(data)
-})
+// databaseFunctions.createUserTable().then((data) => console.log(data))
+// databaseFunctions.addNewUser('blammy', '808').then((data) => {
+//   console.log(data)
+// })
+databaseFunctions
+  .getUser('blammy', '808')
+  .catch((error) => {
+    console.log(error)
+  })
+  .then((data) => {
+    console.log(data)
+  })
