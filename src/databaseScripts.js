@@ -21,17 +21,30 @@ const databaseFunctions = {
     )
     return result.rows[0]
   },
-  updateScore: async () => {},
+  updateScore: async (newScore, id) => {
+    return await pool.query(`update USERS set score = $1 where id = $2`, [
+      newScore,
+      id,
+    ])
+  },
 }
 
 // databaseFunctions.createUserTable().then((data) => console.log(data))
 // databaseFunctions.addNewUser('blammy', '808').then((data) => {
 //   console.log(data)
 // })
+// databaseFunctions
+//   .getUser('blammy', '808')
+//   .catch((error) => {
+//     console.log(error)
+//   })
+//   .then((data) => {
+//     console.log(data)
+//   })
 databaseFunctions
-  .getUser('blammy', '808')
-  .catch((error) => {
-    console.log(error)
+  .updateScore(20, 1)
+  .catch((hands) => {
+    console.log(hands)
   })
   .then((data) => {
     console.log(data)
