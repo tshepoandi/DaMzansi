@@ -86,6 +86,50 @@ a {
   }
 }
 
+.sign-in-form {
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  max-width: 30rem;
+  margin: 0 auto;
+
+  fieldset {
+    border: none;
+    padding: 0;
+  }
+
+  legend {
+    font-weight: 500;
+    font-size: 2rem;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+  }
+
+  li {
+    flex-direction: column;
+    margin: 1.5rem 0;
+    text-align: start;
+
+    label {
+      font-weight: 500;
+    }
+  }
+
+  input,
+  textarea {
+    outline: none;
+    width: 100%;
+    border: 1px solid $light-accent;
+    border-radius: 1.25rem;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  button {
+    margin-top: 1.5rem;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .brand {
     .logo {
