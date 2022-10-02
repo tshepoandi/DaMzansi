@@ -134,6 +134,7 @@ a {
   background-color: $light-accent;
   border-radius: 1.25rem;
   padding: 1.25rem;
+  margin: 1.25rem 0;
 
   h1 {
     font-size: 1.75rem;
@@ -162,6 +163,10 @@ a {
       height: 6rem;
       border-radius: 1.25rem;
       background-color: $dark-accent;
+    }
+
+    &__info {
+      display: none;
     }
   }
 }
@@ -192,8 +197,9 @@ a {
   }
 
   .games {
+    padding: 4.75rem;
     &__container {
-      grid-template-columns: repeat(1fr, 2);
+      grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
     }
   }
 }
@@ -212,5 +218,32 @@ a {
 
   .sign-in {
     font-size: 1.75rem;
+  }
+
+  .games {
+    &__container {
+      padding-top: 1.5rem;
+    }
+    .game {
+      background-color: $dark-accent;
+      height: 19rem;
+      width: 100%;
+
+      border-radius: 1.25rem;
+      padding: 1.25rem;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+
+      &__img {
+        background-color: $primary-color;
+        border-radius: 50%;
+      }
+      &__info {
+        display: block;
+      }
+    }
   }
 }
