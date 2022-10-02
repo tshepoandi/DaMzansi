@@ -130,6 +130,42 @@ a {
   }
 }
 
+.games {
+  background-color: $light-accent;
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  &__container {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    gap: 2rem;
+    margin-top: 1.75rem;
+  }
+
+  .game {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    gap: 1rem;
+
+    &__img {
+      width: 6rem;
+      height: 6rem;
+      border-radius: 1.25rem;
+      background-color: $dark-accent;
+    }
+  }
+}
+
 @media screen and (min-width: 768px) {
   .brand {
     .logo {
