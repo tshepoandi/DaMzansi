@@ -190,6 +190,12 @@ a {
       margin-bottom: 2rem;
     }
   }
+
+  .games {
+    &__container {
+      grid-template-columns: repeat(1fr, 2);
+    }
+  }
 }
 
 @media screen and (min-width: 992px) {
