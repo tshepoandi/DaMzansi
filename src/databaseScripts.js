@@ -15,10 +15,10 @@ const databaseFunctions = {
     return result.rows
   },
   getUser: async (username, password) => {
-    const result = await pool.query(
-      `select * from USERS where username=$1 and password=$2`,
-      [username, password],
-    )
+    const result = await pool.query(queries.selectByUsername, [
+      username,
+      password,
+    ])
     return result.rows[0]
   },
   updateScore: async (newScore, id) => {
@@ -27,6 +27,10 @@ const databaseFunctions = {
       id,
     ])
   },
+}
+
+module.exports = {
+  databaseFunctions,
 }
 
 // databaseFunctions.createUserTable().then((data) => console.log(data))
@@ -41,11 +45,11 @@ const databaseFunctions = {
 //   .then((data) => {
 //     console.log(data)
 //   })
-databaseFunctions
-  .updateScore(20, 1)
-  .catch((hands) => {
-    console.log(hands)
-  })
-  .then((data) => {
-    console.log(data)
-  })
+// databaseFunctions
+//   .updateScore(20, 1)
+//   .catch((hands) => {
+//     console.log(hands)
+//   })
+//   .then((data) => {
+//     console.log(data)
+//   })
