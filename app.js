@@ -6,7 +6,8 @@ const ejs = require('ejs')
 
 let schema = mongoose.Schema
 let url =
-  'mongodb+srv://tshepomashiloane:<password>@cluster0.yuwyjxq.mongodb.net/test'
+  'mongodb+srv://tshepomashiloane:1234@cluster0.yuwyjxq.mongodb.net/?retryWrites=true&w=majority'
+// mongoapi = https://data.mongodb-api.com/app/data-syjde/endpoint/data/v1
 
 mongoose.connect(url, {
   useNewUrlParser: true,
@@ -23,28 +24,44 @@ let mySchema = mongoose.Schema({
   password: 'String',
 })
 
-let userData = mongoose.model('Scores', mySchema)
+let userData = mongoose.model('Users', mySchema)
 
 app.get('/', (req, res) => {
-  app.render('index')
+  res.render('index')
+  // console.log('okay')
 })
 app.post('/', (req, res) => {
   let info = {
     username: req.body.username,
     email: req.body.email,
     password: req.body.password,
+    passwordConfirmation: req.body.password,
   }
   let data = new userData(info)
-  app.save((error) => {
+  data.save((error) => {
     if (error) {
       console.log('error: ' + error)
     } else {
       console.log('Successfully saved')
     }
-    res.send('./public/games.html')
+    // res.send('./public/games.html')
   })
 })
 
 app.listen(3000, (req, res) => {
   console.log('listening on http://localhost:3000')
 })
+
+// curl --location --request POST 'https://data.mongodb-api.com/app/data-syjde/endpoint/data/v1/action/insertOne' \
+// --header 'Content-Type: application/json' \
+// --header 'Access-Control-Request-Headers: *' \
+// --header 'api-key: https://data.mongodb-api.com/app/data-syjde/endpoint/data/v1' \
+// --data-raw '{
+//     "collection":"Users",
+//     "database":"DaVinciUsers",
+//     "dataSource":"Cluster0",
+//     "document": {
+//       "status": "open",
+//       "text": "Do the dishes"
+//     }
+// }'
