@@ -28,15 +28,15 @@ let userData = mongoose.model('Users', mySchema)
 
 app.get('/', (req, res) => {
   res.render('index')
-  // console.log('okay')
 })
 app.post('/', (req, res) => {
   let info = {
     username: req.body.username,
     email: req.body.email,
-    password: req.body.password,
-    passwordConfirmation: req.body.password,
+    password: req.body.password[0],
+    passwordConfirmation: req.body.password[0],
   }
+  console.log(info)
   let data = new userData(info)
   data.save((error) => {
     if (error) {
