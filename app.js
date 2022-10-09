@@ -26,6 +26,8 @@ let mySchema = mongoose.Schema({
 
 let userData = mongoose.model("Users", mySchema);
 
+app.use("/images", express.static("./images"));
+
 app.get("/", (_, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
@@ -36,6 +38,10 @@ app.get("/games", (_, res) => {
 
 app.get("/history", (_, res) => {
   res.sendFile(__dirname + "/public/history.html");
+});
+
+app.get("/learn_more", (_, res) => {
+  res.sendFile(__dirname + "/public/learn_more.html");
 });
 
 app.get("/style.css", (_, res) => {
