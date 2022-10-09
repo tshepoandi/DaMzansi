@@ -16,33 +16,56 @@
             Category
           </h1>
           <div class="grid gap-7 md:grid-cols-3">
-            <div class="grid justify-items-center gap-4">
-              <h2 class="font-semibold text-lg md:text-xl">Tourism</h2>
-              <div class="h-24 w-24 bg-slate-400 rounded-xl"></div>
-              <div class="hidden">
+            <div
+              class="grid justify-items-center gap-4 lg:bg-slate-400 lg:h-72 rounded-3xl content-between px-3 py-6"
+            >
+              <h2
+                class="font-semibold text-lg md:text-xl lg:text-2xl lg:font-semibold"
+              >
+                Tourism
+              </h2>
+              <div class="h-24 w-24 bg-slate-400 rounded-xl lg:hidden"></div>
+              <div class="hidden lg:block">
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Voluptates, quae.
                 </p>
               </div>
             </div>
-            <div class="grid justify-items-center gap-4">
-              <h2 class="font-semibold text-lg md:text-xl">Culture</h2>
-              <div class="game__img h-24 w-24 bg-sky-400 rounded-xl"></div>
-              <div class="hidden">
+            <div
+              class="grid justify-items-center gap-4 lg:bg-sky-400 lg:h-72 rounded-3xl content-between px-3 py-6"
+            >
+              <h2
+                class="font-semibold text-lg md:text-xl lg:text-2xl lg:font-semibold"
+              >
+                Culture
+              </h2>
+              <div
+                class="game__img h-24 w-24 bg-sky-400 rounded-xl lg:hidden"
+              ></div>
+              <div class="hidden lg:block">
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Voluptates, quae.
                 </p>
               </div>
             </div>
-            <div class="grid justify-items-center gap-4">
-              <h2 class="font-semibold text-lg md:text-xl">History</h2>
+
+            <div
+              class="grid justify-items-center gap-4 lg:bg-slate-500 lg:h-72 rounded-3xl content-between px-3 py-6"
+            >
+              <h2
+                class="font-semibold text-lg md:text-xl lg:text-2xl lg:font-semibold"
+              >
+                History
+              </h2>
               <a href="./history">
-                <div class="game__img h-24 w-24 bg-slate-500 rounded-xl"></div>
+                <div
+                  class="game__img h-24 w-24 bg-slate-500 rounded-xl lg:hidden"
+                ></div>
               </a>
 
-              <div class="hidden">
+              <div class="hidden lg:block">
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Voluptates, quae.
@@ -50,7 +73,11 @@
               </div>
             </div>
           </div>
-          <a href="./game.html" class="hidden">Let's Play</a>
+          <a
+            href="./history"
+            class="hidden lg:inline-block bg-sky-900 w-80 py-5 text-xl rounded-3xl mt-12 text-slate-100"
+            >Let's Play</a
+          >
         </div>
       </div>
     </main>
