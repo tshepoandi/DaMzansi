@@ -67,8 +67,10 @@ app.post("/", (req, res) => {
   });
 });
 
-app.listen(3000, (req, res) => {
-  console.log("listening on http://localhost:3000");
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, (req, res) => {
+  console.log(`listening on http://localhost:${PORT}`);
 });
 
 // curl --location --request POST 'https://data.mongodb-api.com/app/data-syjde/endpoint/data/v1/action/insertOne' \
