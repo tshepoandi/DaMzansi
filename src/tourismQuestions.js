@@ -50,7 +50,7 @@ const questions3 = {
       value: false,
     },
     {
-      rightAnswer: Robots,
+      rightAnswer: 'Robots',
     },
   ],
 }
