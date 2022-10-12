@@ -2,12 +2,15 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+const mongo = require('mongodb').MongoClient
+const assert = require('assert')
 const ejs = require('ejs')
 const path = require('path')
 
 let schema = mongoose.Schema
 let url =
   'mongodb+srv://tshepomashiloane:1234@cluster0.yuwyjxq.mongodb.net/?retryWrites=true&w=majority'
+// 'mongodb+srv://tshepomashiloane:1234@cluster0.yuwyjxq.mongodb.net/?retryWrites=true&w=majority'
 
 mongoose.connect(url, {
   useNewUrlParser: true,
