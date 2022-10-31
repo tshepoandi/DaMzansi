@@ -57,27 +57,6 @@ const questions = {
   },
 }
 
-let guesses
-let correctAnswer
-let questionNumber = 0
-let gameQuestion = `${Object.values(questions[questionNumber])[0]} \nis it:\n\n`
-const abc = 'abcde'
-let userScore = 0
-
-for (let i = 0; i < questions[0].options.length; i++) {
-  guesses = Object.values(questions[0].options[i])
-  gameQuestion += `${abc[i]}:${guesses[0]}\n`
-  if (guesses[1] === true) {
-    correctAnswer = guesses[0]
-  }
-}
-let userResponse = 'Kimberly'
-const answer = userResponse === correctAnswer ? 'correct' : 'incorrect'
-
-if (userResponse === correctAnswer) {
-  console.log(`Your Guess is ${answer}`)
-}
-
 function promptUser() {
   let gameQuestion = questions[0]
   console.log(gameQuestion.question)
