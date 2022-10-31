@@ -61,15 +61,22 @@ function promptUser() {
   let gameQuestion = questions[0]
   console.log(gameQuestion.question)
   let i = 0
+  let correctAnswer
   let questionsQue = setInterval(() => {
     console.log(
       `${String.fromCharCode(97 + i)} ${
         gameQuestion.options[i][String.fromCharCode(97 + i)]
       }`,
     )
+    if (gameQuestion.options[i].value) {
+      correctAnswer = gameQuestion.options[i][String.fromCharCode(97 + i)]
+    }
     i++
     if (i >= gameQuestion.options.length) clearInterval(questionsQue)
   }, 2000)
+
+  let userResponse = 'Soweto' //this will be userResponse
+  console.log(userResponse === correctAnswer)
 }
 
 promptUser()
