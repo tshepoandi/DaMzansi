@@ -3,19 +3,19 @@ const questions = {
     question: 'Where is the largest hospital in the world located?',
     options: [
       {
-        0: 'Kimberly',
+        a: 'Kimberly',
         value: false,
       },
       {
-        1: 'Soweto',
+        b: 'Soweto',
         value: true,
       },
       {
-        2: 'Cape Town',
+        c: 'Cape Town',
         value: false,
       },
       {
-        3: 'Sandton',
+        d: 'Sandton',
         value: false,
       },
     ],
@@ -72,10 +72,25 @@ for (let i = 0; i < questions[0].options.length; i++) {
   }
 }
 let userResponse = 'Kimberly'
-
-console.log(gameQuestion)
 const answer = userResponse === correctAnswer ? 'correct' : 'incorrect'
 
 if (userResponse === correctAnswer) {
   console.log(`Your Guess is ${answer}`)
 }
+
+function promptUser() {
+  let gameQuestion = questions[0]
+  console.log(gameQuestion.question)
+  let i = 0
+  let questionsQue = setInterval(() => {
+    console.log(
+      `${String.fromCharCode(97 + i)} ${
+        gameQuestion.options[i][String.fromCharCode(97 + i)]
+      }`,
+    )
+    i++
+    if (i >= gameQuestion.options.length) clearInterval(questionsQue)
+  }, 2000)
+}
+
+promptUser()

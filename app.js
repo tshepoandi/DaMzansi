@@ -2,91 +2,82 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
-const mongo = require('mongodb').MongoClient
-const assert = require('assert')
-const ejs = require('ejs')
-const path = require('path')
-
-let schema = mongoose.Schema
-let url =
-  'mongodb+srv://tshepomashiloane:1234@cluster0.yuwyjxq.mongodb.net/?retryWrites=true&w=majority'
-// 'mongodb+srv://tshepomashiloane:1234@cluster0.yuwyjxq.mongodb.net/?retryWrites=true&w=majority'
+const engines = require('consolidate')
 
 mongoose.connect(url, {
   useNewUrlParser: true,
 })
-let engines = require('consolidate')
 
 app.set('views', __dirname + '/views')
 app.engine('html', engines.mustache)
 app.set('view engine', 'html')
-
 app.use(express.static(__dirname + '/public'))
-
 app.use(
   bodyParser.urlencoded({
     extended: false,
   }),
 )
 
-let mySchema = mongoose.Schema({
-  username: 'String',
-  email: 'String',
-  password: 'String',
-})
-
-let userData = mongoose.model('Users', mySchema)
-
 app.use('/images', express.static('./images'))
-
 app.get('/', (_, res) => {
-  res.sendFile(__dirname + '/public/index.html')
+  res.render('index.ejs')
 })
-
 app.get('/games', (_, res) => {
   res.sendFile(__dirname + '/public/games.html')
 })
-
 app.get('/history', (_, res) => {
   res.sendFile(__dirname + '/public/history.html')
 })
-
 app.get('/learn_more', (_, res) => {
   res.sendFile(__dirname + '/public/learn_more.html')
 })
-
 app.get('/style.css', (_, res) => {
   res.sendFile(__dirname + '/public/style.css')
 })
-
 app.get('/sign_up', (_, res) => {
   res.render(__dirname + '/views/sign_up.ejs')
 })
 
-let info
-app.post('/sign_up', (req, res) => {
-  info = {
+let url =
+  'mongodb+srv://tshepomashiloane:1234@cluster0.yuwyjxq.mongodb.net/?retryWrites=true&w=majority'
+
+let mySchema = mongoose.Schema({
+  username: 'String',
+  email: 'String',
+  password: 'String',
+  score: 'String',
+})
+let userData = mongoose.model('Users', mySchema)
+
+app.post('/sign_up', async (req, res) => {
+  const info = {
     username: req.body.username,
     email: req.body.email,
     password: req.body.password[0],
     passwordConfirmation: req.body.password[0],
+    Score: 0,
   }
-  console.log(info)
   let data = new userData(info)
-  data.save((error) => {
+  await data.save((error, result) => {
     if (error) {
       console.log('error: ' + error)
     } else {
-      console.log('Successfully saved')
+      console.log(result)
     }
     res.render('games.ejs')
   })
 })
 
 const PORT = process.env.PORT || 5000
-
 app.listen(PORT, (req, res) => {
   console.log(`listening on http://localhost:${PORT}`)
+})
+userData.find({ username: 'tshepo' }, function (err, docs) {
+  if (err) {
+    console.log(err)
+  } else {
+    console.log('First function call : ', docs)
+  }
 })
 
 module.exports = {
