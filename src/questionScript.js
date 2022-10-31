@@ -25,11 +25,11 @@ const questions = {
     question: `True or False, Table mountain's high is deeper than Kimberly Hole's Deep`,
     options: [
       {
-        0: 'True',
+        a: 'True',
         value: false,
       },
       {
-        1: 'False',
+        b: 'False',
         value: true,
       },
     ],
@@ -39,19 +39,20 @@ const questions = {
     question: 'What are traffic lights called is South Africa',
     options: [
       {
-        0: 'Lights',
+        a: 'Lights',
         value: false,
       },
       {
-        1: 'Machines',
+        b: 'Machines',
         value: false,
       },
       {
-        2: 'Stops',
+        c: 'Stops',
         value: false,
       },
       {
-        rightAnswer: 'Robots',
+        d: 'none',
+        vale: true,
       },
     ],
   },
@@ -74,9 +75,6 @@ function promptUser() {
     i++
     if (i >= gameQuestion.options.length) clearInterval(questionsQue)
   }, 2000)
-
-  let userResponse = 'Soweto' //this will be userResponse
-  console.log(userResponse === correctAnswer)
 }
 
 promptUser()
