@@ -3,7 +3,8 @@ const app = express()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const engines = require('consolidate')
-
+let url =
+  'mongodb+srv://tshepomashiloane:1234@cluster0.yuwyjxq.mongodb.net/?retryWrites=true&w=majority'
 mongoose.connect(url, {
   useNewUrlParser: true,
 })
@@ -37,9 +38,6 @@ app.get('/style.css', (_, res) => {
 app.get('/sign_up', (_, res) => {
   res.render(__dirname + '/views/sign_up.ejs')
 })
-
-let url =
-  'mongodb+srv://tshepomashiloane:1234@cluster0.yuwyjxq.mongodb.net/?retryWrites=true&w=majority'
 
 let mySchema = mongoose.Schema({
   username: 'String',
@@ -80,6 +78,6 @@ userData.find({ username: 'tshepo' }, function (err, docs) {
   }
 })
 
-module.exports = {
-  info,
-}
+// module.exports = {
+//   info,
+// }
